@@ -1,84 +1,56 @@
-# Знакомство со стеком React, Next.js, TanStack Query, SQLite
+# Student Group Dashboard
 
-## Установка 
+<p align="center">
+  <strong>Управление учебными группами и списками студентов</strong><br />
+  Next.js-приложение с SQLite API, страницами групп и студентов и кешированием запросов.
+</p>
 
-1) Открыть cmd, выполнить (cклонировать проект на диск С: в личную папку (на диске G: проект не развернется):
-    ```
-    git clone https://github.com/sergeyvo80/vki-next
-    ```
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-App%20Router-000000?logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TanStack%20Query-Data%20Fetching-FF4154?logo=reactquery&logoColor=white" alt="TanStack Query" />
+  <img src="https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite&logoColor=white" alt="SQLite" />
+</p>
 
-2) Открыть в VSCode, в терминале VSCode выполнить:
-    ```
-    Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-    ```
+## Возможности
 
-3) Установить npm пакеты:
-    ```
-    npm i
-    ```
+- Просмотр групп и студентов.
+- API-маршруты Next.js для чтения групп и студентов.
+- Работа с SQLite и TanStack Query.
+- Документация по маршрутизации, HTTP и модели данных в `docs/`.
 
-4) Запустить проект:
-    ```
-    npm run dev
-    ```
+## Технологии
 
-### Открыть в браузере две вкладки
+Next.js, React, TypeScript, TanStack Query, SQLite, Sass.
 
-http://localhost:3000/ - приложение
+## Быстрый запуск
 
-http://localhost:3000/api/groups - апи
+Требуется Node.js. Установите зависимости и запустите dev-сервер:
 
+```bash
+npm ci
+npm run dev
+```
 
-## Конфигурация
-1) Создать файл .env.local в корне проекта
-    ```
-    # .env.local
-    DB="g:/db/vki-web.db"
-    NEXT_PUBLIC_API="http://localhost:3000/api/"
-    ```
-2) Скопировать базу данных и ./db/vki-web.db в G:\db\vki-web.db
+Откройте `http://localhost:3000`. Проверка API групп: `http://localhost:3000/api/groups`.
 
-## Файловый раутинг Next.js - работает из папки src/app
+Другие команды:
 
-[читать по ссылке](docs/next-routing.md)
+```bash
+npm run lint
+npm run build
+```
 
+## Конфигурация и данные
 
-## Назначение файлов
+Приложению нужна SQLite-база. Настройте переменные окружения для локальной разработки, указывая путь к собственной базе и API URL. Не публикуйте персональные данные и не используйте данные из репозитория в реальном развертывании.
 
-### Приложение - Frontend
+**Внимание:** текущая база в репозитории содержит записи студентов. Перед распространением или повторным использованием замените ее синтетическими данными; для полноценной очистки опубликованной истории потребуется отдельная операция по переписыванию Git-истории.
 
-- Главный шаблон (точка входа) - [src/app/layout.tsx](src/app/layout.tsx)
-- Компоненты шаблона - [src/app/components/layout](src/app/components/layout)
-- Страница - [src/app/groups/page.tsx](src/app/groups/page.tsx)
-- Компонент - [src/components/Groups/Groups.tsx](src/components/Groups/Groups.tsx)
-- Хук получения данных - [src/hooks/useGroups.tsx](src/hooks/useGroups.tsx)
-- Получение данных из API - [src/api/groupsApi.ts](src/api/groupsApi.ts)
+## Структура
 
-### API - Backend
-
-- API возвращает список групп - [src/app/groups/route.ts](src/app/groups/route.ts)
-- Запрос к БД - [src/db/groupDb.ts](src/db/groupDb.ts)
-- Стартовая БД и запросы - папка db в корне проекта
-
-## Работа с данными
-![data](docs/pics/data.png)
-
-
-## Инструменты
-- ### [TanStackQuery - работа с данными в приложении](docs/tanstack-query.md)
-- ### [БД SQLite](docs/db.md)
-- ### [HTTP запросы](docs/http.md)
-- ### [GIT](docs/git.md)
-
-
-
-## Ссылки
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-  
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-- TanStackQuery - https://tanstack.com/query/latest
-
-- https://nextjs.org/docs/app/api-reference/file-conventions/route
+- `src/app/` — страницы и API-маршруты Next.js.
+- `src/components/` — интерфейс групп и студентов.
+- `src/db/` — запросы к SQLite.
+- `docs/` — заметки по проекту и используемым технологиям.
 
